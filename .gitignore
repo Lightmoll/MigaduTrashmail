@@ -1,0 +1,6 @@
+__pycache_/*
+pico-master/*
+config.py
+debug*
+*.db
+dev/*

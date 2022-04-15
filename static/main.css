@@ -1,0 +1,44 @@
+.min-size {
+    max-width: 700px;
+    
+}
+
+.logo {
+    height: 2.5rem;
+    width: 1.4em;
+    fill: var(--h1-color);
+}
+
+.good {
+    background-color: #43a047 !important;
+    border-color: #43a047 !important;
+}
+
+.bad {
+    background-color: #e53935 !important;
+    border-color: #e53935 !important;
+}
+
+#popup {
+    visibility: hidden;
+    position: absolute;
+    top: min(40%, 500px);
+    left: 50%;
+    translate: -50%;
+    background: white;
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius);
+    border: 1px solid gray;
+    padding: 10px;
+    
+}
+
+.active {
+    visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
