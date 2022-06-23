@@ -55,7 +55,7 @@ def handle_create():
 @app.route('/api/del/<email>')
 def handle_delete(email):
     name, domain = email.lower().split("@")
-    mapi.delete_alias(name, domain)
+    if not config.DRYRUN: mapi.delete_alias(name, domain)
     db.remove(where("whole_email") == email)
     print(db.all())
     return redirect("/#deleted")
@@ -75,7 +75,7 @@ def register_domain(name, domain, expiry_delta=15*60):
         "created": time.time()
     }
 
-    mapi.create_alias(name, domain) 
+    if not config.DRYRUN: mapi.create_alias(name, domain) 
     db.insert(entry)
 
 
@@ -86,7 +86,7 @@ def purge_domains():
         print("Hit json error")
         pass #seems to be a bug of tinydb
     for result in results:
-        mapi.delete_alias(result["name"].lower(), result["domain"].lower())
+        if not config.DRYRUN: mapi.delete_alias(result["name"].lower(), result["domain"].lower())
         db.remove(doc_ids=[result.doc_id])
 
 
