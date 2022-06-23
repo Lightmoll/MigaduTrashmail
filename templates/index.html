@@ -26,7 +26,7 @@
                 </p>
             </div>
             <form action="/api/create" id="create_form">
-                <input type="text" name="name" pattern="[_A-Za-z0-9\.]{2,30}" placeholder="address, leave empty for random">
+                <input type="text" id="create_form_text" name="name" pattern="[_A-Za-z0-9\.]{2,30}" placeholder="address, leave empty for random">
                 <select name="domain"> 
                     {% for domain in domains %}
                     <option value="{{domain}}">@{{domain}}</option>
@@ -38,6 +38,12 @@
         </div>
         <hr>
         <h2>Active Aliases:</h2>
+        <div class="daily-alias">
+            {% if daily_alias %}
+            <h3>Daily Alias</h3>
+            <a><a onclick="text_to_clipboard('{{ daily_alias }}')" data-tooltip="Copy to Clipboard">{{ daily_alias }}</a></summary></a>
+            {% endif %}
+        </div>
         <div class="exiting_mails container">
             {% if not reg_alias %}
                 <p>There are no aliases jet.</p>

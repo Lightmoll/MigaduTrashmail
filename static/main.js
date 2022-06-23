@@ -1,4 +1,5 @@
 var button = document.getElementById("create_button");
+var text_field = document.getElementById("create_form_text");
 
 
 document.getElementById("create_form").onsubmit = function() {
@@ -6,6 +7,20 @@ document.getElementById("create_form").onsubmit = function() {
     button.setAttribute("aria-busy", "true");
 }
 
+
+text_field.onkeyup = function() {
+    if (text_field.value == ""){
+        text_field.removeAttribute("aria-invalid");
+        return;
+    }
+
+    var re = /^[_A-Za-z0-9\.]{2,30}$/;
+    if (re.exec(text_field.value)) {
+        text_field.setAttribute("aria-invalid", "false");
+    } else {
+        text_field.setAttribute("aria-invalid", "true");
+    }
+}
 
 window.onload = function() {
     var status = location.hash.substring(1)
@@ -27,6 +42,7 @@ window.onload = function() {
 function button_to_normal() {
     button.classList.remove("good");
     button.classList.remove("bad");
+
     button.textContent = "Create";
 }
 
