@@ -29,3 +29,7 @@ function button_to_normal() {
     button.classList.remove("bad");
     button.textContent = "Create";
 }
+
+function text_to_clipboard(text) {
+    navigator.clipboard.writeText(text);
+}

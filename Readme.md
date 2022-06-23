@@ -35,5 +35,10 @@ _Note_: Because of migadu limitations you can only create an alias for the same 
     where 2 corresponds with the number of workers spawned for the app
 4. configure your reverse proxy to redirect all traffic to port 8000
 
+## HTTP / HTTPS
+Since there are no passwords transmitted over the actual webpage (all API calls are done securely via the backend), a HTTPS connection is not strictly neccessary. 
+
+However copying to clipboard won't be possible without HTTPS. This only works from trusted sources e.g. a connection over HTTPS.
+
 ## Beta Notice
 The software is currently in beta, some aspects may not yet work as intedend, or at all. Please be patient until I release the full version.

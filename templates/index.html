@@ -44,7 +44,7 @@
             {% else %}
                 {% for mail in reg_alias%}
                 <details class="min-size">
-                    <summary>{{ mail.whole_email }}</summary>
+                    <summary><a onclick="text_to_clipboard('{{ mail.whole_email }}')" data-tooltip="Copy to Clipboard">{{ mail.whole_email }}</a></summary>
                     <div class="grid">
                         <i>The alias will be automatically deleted, however you may delete it now: </i>
                         <div>
